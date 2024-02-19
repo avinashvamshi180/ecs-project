@@ -4,7 +4,7 @@ ECS is a managed container orchestrator like Kubernetes and Swarm. Orchestrator 
 
 ECS has two launch types a) EC2 Type and b) Fargate
 
-** EC2 Type: **
+**EC2 Type:**
 We have to manage the underlying EC2 Instances, and we have full control over the infratructure. ECS manages the containers in EC2 Instances
 
 ** Fargate: **
