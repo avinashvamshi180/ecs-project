@@ -1,4 +1,6 @@
-this document describes how to execute the project step by step:
+For proper Visual Execution of the Application, please refer the Images Section.
+
+This document describes how to execute the project step by step:
 
 This Docker Compose file defines two services, api and mongo, along with a volume named mongo-db. this Docker Compose file sets up two services: an API service and a MongoDB service. The API service connects to the MongoDB service using environment variables and exposes its functionality on port 3000. The MongoDB service uses a named volume to persist its data.
 
