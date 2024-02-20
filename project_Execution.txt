@@ -26,3 +26,31 @@ volumes:
   mongo-db 
 
 
+
+---------------------------------------------
+
+(1). Create an ECS Cluster, named 'demo-cluster-ecs-project' and for Infrastructure type, choose Fargate
+
+CREATING TASK DEFINITION FILE OF THE APPLICATION
+(2). Create a Task Definition, named 'ecs-project2-task-definition', for Launch type choose AWS Fargate, choose the required hardware type CPU, Memory
+(3). Create a Task Role named 'task-role-for-ecs' which allows the containers to make API requests to other AWS Services and a Task Execution Role named 'task-role-for-ecs' for the container agents to make AWS API requests on your behalf.
+(4). Define Container 1 Details: Name: mongo ; Image URI: mongo (Container Port: 27017; Protocol: TCP; Port Name: mongodb-port)
+Then, add the environmental variables MONGO_INITDB_ROOT_USERNAME=mongo ; MONGO_INITDB_ROOT_PASSWORD=password
+(5). Define Container 2 Details: Name: webApp ; Image URI: kodecloud/ecs-project2 ; Essentail Container: Yes (ContainerPort: 3000, Protocol: TCP, Port Name: webApp-port)
+Then, MONGO_USER=mongo, MONGO_PASSWORD=password, MONGO_IP=mongo, MONGO_PORT=27017
+(6). Define the persistent data storage Volume for mongodb using efs: 
+Volume Name: mongo-db; Configuration Type: configure at task definition creation ; Volume type: Bind Mount; then create an EFS file system, named mongo-db.
+Create Container Mount Points: Container: mongo; Source Volume: mongo-db; Container-path: /data/db
+
+
+CREATING THE SERVICE FOR TASK DEFINITION
+(7). Choose Create Service, for the created Task Definition File: ecs-project2-task-definition
+(8). Choose Service Name: notes-app-service; Service Type: Replica; Desired Tasks: 1 (number of instances of our application)
+(9). Then create a Load Balancer, choose Container (webApp listening on port 3000) to load balance, then choose port 80 as listening port for the ALB and target group as our container ip addresses, then click on Create
+
+Once the service is created, check the status of the Service, and then the status of the containers under Task Section
+
+Finally verify the application working status using ALB DNS Name, in the browser. 
+
+Thanks.
+
