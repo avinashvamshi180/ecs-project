@@ -17,3 +17,7 @@ AWS manages the underlying infrastructure. It follows a serverless architecture,
 **ECS Services:** ensures a certain number of Tasks are running at all times, Restarts Containers that have exited/crashed, EC2 Instance fails, it will restart task on a working EC2 instance.
 
 **Load Balancers:** routes the traffic to the service
+
+This is the architecture of the project(application), we are trying to implement through ECS using Fargate
+
+![ecs-project-architecture](https://github.com/avinashvamshi180/ecs-project/assets/8394008/a91ba725-43f4-49a6-90e3-6e0e187c0814)
