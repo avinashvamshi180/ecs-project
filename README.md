@@ -21,3 +21,11 @@ AWS manages the underlying infrastructure. It follows a serverless architecture,
 This is the architecture of the project(application), we are trying to implement through ECS using Fargate
 
 ![ecs-project-architecture](https://github.com/avinashvamshi180/ecs-project/blob/main/images/ecs-project-architecture.png)
+
+**Definitions:**
+
+A Dockerfile is a text file that contains a set of instructions for building a Docker image.
+
+The docker-compose.yml is a YAML file used to define the multi-container Docker applications. It allows you to define the services, networks, and volumes for your application in a declarative way.
+
+
