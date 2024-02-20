@@ -20,4 +20,4 @@ AWS manages the underlying infrastructure. It follows a serverless architecture,
 
 This is the architecture of the project(application), we are trying to implement through ECS using Fargate
 
-![ecs-project-architecture](https://github.com/avinashvamshi180/ecs-project/assets/8394008/a91ba725-43f4-49a6-90e3-6e0e187c0814)
+![ecs-project-architecture](https://github.com/avinashvamshi180/ecs-project/blob/main/images/ecs-project-architecture.png)
