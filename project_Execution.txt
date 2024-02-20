@@ -1,1 +1,28 @@
 this document describes how to execute the project step by step:
+
+This Docker Compose file defines two services, api and mongo, along with a volume named mongo-db. this Docker Compose file sets up two services: an API service and a MongoDB service. The API service connects to the MongoDB service using environment variables and exposes its functionality on port 3000. The MongoDB service uses a named volume to persist its data.
+
+version: "3"
+services:
+  api:											#web server api service
+    build: .
+    image: kodekloud/ecs-project2
+    environment:
+      - MONGO_USER=mongo
+      - MONGO_PASSWORD=password
+      - MONGO_IP=mongo
+      - MONGO_PORT=27017
+    ports:										#Maps port 3000 on the host to port 3000 on the container, allowing access to the API service from the host.
+      - "3000:3000"
+  mongo:										#mongoDB
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongo
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mongo-db:/data/db						#persistence data storage.
+
+volumes:
+  mongo-db 
+
+
